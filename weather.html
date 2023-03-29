@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--use the Google API to determine the temperature of the entered city-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="weather.css" />
+</head>
+<body>
+  <div class="weather"><!--create a main div in which all the div are to be made-->
+    <section class="main"><!--create a main section block-->
+      <section class="inputs"><!--create a section in which the user enters the name of the city and then presses a button to determine the temperature-->
+        <input type="text"; placeholder="Enter any country you want to show..."; id="cityinput";>
+        <button placeholder="submit"; id="add";>submit</button>
+      </section>
+      <!--create a section through which we can find details on the temperature of that particular area-->
+      <section class="display">
+        <div class="wrapper">
+          <h2 id="cityoutput"></h2>
+          <p id="description"></p>
+          <p id="temp"></p>
+          <p id="wind"></p>
+        </div>
+      </section>
+    </section>
+  </div>
+  <script scr=" weather.js">//determine the constant of the id function, because HTML can’t be used directly in JavaScript
+    var inputval = document.querySelector('#cityinput')
+    var btn = document.querySelector('#add');
+    var city = document.querySelector('#cityoutput');
+    var temp = document.querySelector('#temp');
+    var wind = document.querySelector('#wind');
+    var uv = document.querySelector('#description');
+    apik = "6920ae09f64b4de3b81132346232203"
+    //convert the temperature scale from Kelvin to Celsius
+    function convertion(val)
+    {
+        return (val - 273).toFixed(2)
+    }
+    //get the data with the help of the fetch method
+    btn.addEventListener('click', function(){
+        //The weather data comes from this API
+        inputval = document.querySelector('#cityinput').value;
+        console.log(inputval);
+        console.log('http://api.weatherapi.com/v1/current.json?key=6920ae09f64b4de3b81132346232203&q='+inputval+'&aqi=no');
+      fetch('http://api.weatherapi.com/v1/current.json?key=6920ae09f64b4de3b81132346232203&q='+inputval+'&aqi=no')
+      .then(res => res.json()).then(data => {
+        //get the data from the API and store it in different constants
+        console.log(data);
+        console.log(data.location.name)
+        city.innerHTML = "Weather of "+data.location.country;
+        temp.innerHTML = "Temperature: "+data.location.lat;
+        wind.innerHTML = "Wind Speed: "+data.current.cloud;
+        uv.innerHTML = "uv: "+data.current.uv;
+      })
+      //An error message appears. This message is displayed when we don’t enter a city name or when we enter the wrong name
+      .catch(err => alert('You entered Wrong country name try again!'))
+    })</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+/*adjust the background div and the background color*/
+body{
+    background: #0c6dce;
+}/*set the height and width of the container*/
+.weather
+{
+    padding: 30px;   
+    background-color: lightblue;  
+}
+/*set the properties of the “input”*/
+input[type="text"] 
+{
+    width: 100%;   
+    margin: 8px 0;  
+    padding: 12px 20px;   
+    display: inline-block;   
+    border: 2px solid rgb(0, 111, 128);   
+    box-sizing: border-box;  
+}/*set the properties of the “submit” button*/
+input[type="submit"] 
+{
+    width: 100%;   
+    margin: 8px 0;  
+    padding: 12px 20px;   
+    display: inline-block;   
+    border: 2px solid rgb(0, 111, 128);   
+    box-sizing: border-box;  
+}/*set the properties of the display*/
+.display 
+{
+    text-align: center;
+    width: 400px;
+    color: #16a864;
+}/*set the properties of how the data should be displayed.*/
+.wrapper 
+{
+    margin: 0 9rem;
+    background-color: white;
+    height: 45vh;
+    margin: 50px auto;
+    border-radius: 2px;
+}
+
+.wrapper h2
+{
+    padding: 5px 0;
+    text-align: center;
+    background: #0548b5;
+    color: white;
+    font-family: sans-serif;
+}
+.wrapper p
+{
+    margin:20px 50px;
+    margin-right: 20px;
+    text-align: left;
+    color: #04214c;
+    font-size:23px;
+}
+.wrapper h2 span
+{
+    font-size: 26px;
+    color: #9beefb;
+}
+.wrapper p span
+{
+    color: #f4780d;
+    font-size: 25px;
+}
